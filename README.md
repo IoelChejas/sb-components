@@ -11,7 +11,7 @@
 * main: dist/index.js
 * homepage
 * repository url: mi github type: git
-* release branch: main
+* release branches: main
 * files: dist, src
 
 ### tsconfig.json

@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# Storybook components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Configuracion para despliege automatico
 
-## Available Scripts
+### package.json
 
-In the project directory, you can run:
+* private = false
+* Cambiar name. Debe ser unico
+* licence: MIT
+* typings: dist/index.d.ts
+* main: dist/index.js
+* homepage
+* repository url: mi github type: git
+* release branch: main
+* files: dist, src
 
-### `npm start`
+### tsconfig.json
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* compilerOptions outDir: dist
+* compilerOptions declaration: true
+* compilerOptions noEmit: false
+* compilerOptions module: commonjs
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### src/index.tsx
 
-### `npm test`
+* Exportar componentes
+* comando tsc genera dist
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### package.json build
 
-### `npm run build`
+* npm run clean && tsc && npm run copy-files
+* npm i -D rimraf
+* npm i -D copyfiles
+* nuevos scripts: 
+* "clean": "rimraf dist/"
+* "copy-files": "copyfiles -u 1 src/**/*.css dist/"
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### package.json peerDependencies
+* react
+* typescript
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### semantic release
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* npm i -D semantic-release
+* agregar plugins: "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+],

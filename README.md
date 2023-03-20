@@ -50,3 +50,16 @@
     "@semantic-release/npm",
     "@semantic-release/git"
 ],
+* commits: fix: feat: perf:
+
+### github: settings: developer settings: create token scope: repo
+
+* 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
+
+### npm.js profile access tokens new token: 
+
+* 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
+
+### github: setting : secrets
+
+* agregar secret: GH_TOKEN, NPM_TOKEN
